@@ -49,16 +49,10 @@
             margin-right: 10px;
         }
 
-        /* Section styling */
         .content-section {
             background-color: #f2e6d9;
             padding: 20px;
             text-align: center;
-        }
-
-        .about-section {
-            background-color: #f9f6f2;
-            padding: 40px 20px;
         }
 
         .animated-heading-test {
@@ -66,7 +60,8 @@
             display: inline-block;
             overflow: hidden;
             white-space: nowrap;
-            font-size: 3em;
+            font-size: 8vw;
+            /* Responsive font size */
             color: #1d0f00;
             animation: typing 4s steps(22, end) infinite, blink-caret 0.75s step-end infinite;
         }
@@ -93,37 +88,37 @@
             }
         }
 
-        .animated-letter {
-            display: inline-block;
-            opacity: 0;
-            animation: fade-in-color 5s linear forwards;
+        /* Additional styles for mobile optimization */
+        @media (max-width: 576px) {
+            .content-section {
+                padding: 10px;
+                /* Reduce padding on small screens */
+            }
+
+            .animated-heading-test {
+                margin-top: 40px;
+                /* Reduce margin on small screens */
+            }
+
+            .fixed-contact-button {
+                margin: 10%;
+                /* Adjust margin for mobile */
+                width: 80%;
+                /* Make the button larger */
+            }
+
+            img {
+                max-width: 100%;
+                /* Ensure the image is responsive */
+                height: auto;
+                /* Maintain aspect ratio */
+            }
         }
 
-        @keyframes fade-in-color {
-            0% {
-                opacity: 0;
-                color: #4E3626;
-            }
 
-            25% {
-                opacity: 0.25;
-                color: #DAA520;
-            }
-
-            50% {
-                opacity: 0.5;
-                color: #8B4513;
-            }
-
-            75% {
-                opacity: 0.75;
-                color: #D4A76A;
-            }
-
-            100% {
-                opacity: 1;
-                color: #4E3626;
-            }
+        .about-section {
+            background-color: #f9f6f2;
+            padding: 40px 20px;
         }
 
 
@@ -215,7 +210,6 @@
 
         /* Certifications Section */
         .certifications {
-            background-color: #f9f6f2;
             padding: 40px 20px;
             animation: fadeIn 2s ease-in-out;
         }
@@ -272,17 +266,18 @@
         .contact-section {
             text-align: center;
             padding: 50px;
-            background-color: #D4A76A;
+            background-color: #f9f6f2;
         }
 
         .contact-section h1 {
             font-size: 3em;
+            /* Adjust in media query */
             color: #4E3626;
-
         }
 
         .contact-section p {
             font-size: 1.2em;
+            /* Adjust in media query */
             margin-bottom: 20px;
         }
 
@@ -290,12 +285,17 @@
             display: flex;
             justify-content: center;
             gap: 50px;
+            /* Adjust in media query */
+            flex-wrap: wrap;
+            /* Allow wrapping on smaller screens */
         }
 
         .contact-method {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 10px;
+            /* Add margin for spacing */
         }
 
         .contact-method a {
@@ -311,34 +311,46 @@
 
         .contact-method p {
             font-size: 1em;
+            /* Adjust in media query */
             margin: 5px 0;
         }
 
         .contact-method p:first-child {
             font-weight: bold;
             font-size: 1.1em;
+            /* Adjust in media query */
         }
 
         .contact-method a:hover {
-            color: white;
+            color: black;
         }
 
-        /* Social media footer */
-        .footer-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-        }
+        /* Media Queries for Mobile and Tablet Adjustments */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 30px;
+                /* Reduce padding */
+            }
 
-        .footer-icons a {
-            font-size: 1.5em;
-            color: #4E3626;
-        }
+            .contact-section h1 {
+                font-s
 
-        .footer-icons a:hover {
-            color: #DAA520;
-        }
+                /* Social media footer */
+                .footer-icons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+                    margin-top: 50px;
+                }
+
+                .footer-icons a {
+                    font-size: 1.5em;
+                    color: #4E3626;
+                }
+
+                .footer-icons a:hover {
+                    color: #DAA520;
+                }
     </style>
 </head>
 
@@ -377,17 +389,18 @@
     <!-- Main Content Section -->
     <div class="container-fluid">
         <div class="row content-section">
-            <div class="col-md-9" style="padding: 5%;">
+            <div class="col-md-9 col-12" style="padding: 5%;">
                 <h1 class="animated-heading-test">Hello, I'm Disha!</h1>
                 <br>
                 <a href="#contact" style="margin: 5%;"
                     class="btn btn-dark fixed-contact-button animate__animated animate__fadeIn">Contact</a>
             </div>
-            <div class="col-md-3">
-                <img src="/d2.jpg" alt="Disha" class="animate__animated animate__fadeIn">
+            <div class="col-md-3 col-12">
+                <img src="/d2.jpg" alt="Disha" class="animate__animated animate__fadeIn" style="width: 100%;">
             </div>
         </div>
     </div>
+
 
     <!-- About Section -->
     <section id="about-section" class="about-section">
@@ -619,8 +632,7 @@
                 </a>
             </div>
             <div class="contact-method">
-                <a href="https://www.linkedin.com/in/disha-bansal-940ba3241/""
-                    target=" _blank">
+                <a href="https://www.linkedin.com/in/disha-bansal-940ba3241/" target="_blank">
                     <i class="fab fa-linkedin" style="font-size:50px;color:#4E3626;"></i>
                     <p>FIND ME –</p>
                     <p>Disha Bansal</p>
@@ -628,28 +640,46 @@
             </div>
         </div>
     </section>
+
     <footer class="footer-section">
         <div class="footer-content">
-            <div class="footer-icons">
-                <a href="https://www.instagram.com/disha_bansal__/?next=%2F" target="_blank"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100089272099244" target="_blank"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="https://x.com/disha_bansal__" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.youtube.com/yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/disha-bansal-940ba3241/" target="_blank"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/DishaBansal15" target="_blank" class="social-icon github">
-                    <i class="fab fa-github"></i>
+            <div class="footer-icons" style="text-align: center; margin-top: 1%;">
+                <a href="https://www.instagram.com/disha_bansal__/?next=%2F" target="_blank"
+                    style="text-decoration: none;">
+                    <i class="fab fa-instagram" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
                 </a>
-                <!-- LeetCode Link -->
-                <a href="https://leetcode.com/u/DishaBansal/" target="_blank" class="social-icon leetcode">
-                    <i class="fab fa-leetcode"></i>
+                <a href="https://www.facebook.com/profile.php?id=100089272099244" target="_blank"
+                    style="text-decoration: none;">
+                    <i class="fab fa-facebook-f" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
+                </a>
+                <a href="https://x.com/disha_bansal__" target="_blank" style="text-decoration: none;">
+                    <i class="fab fa-twitter" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
+                </a>
+                <a href="https://www.youtube.com/yourchannel" target="_blank" style="text-decoration: none;">
+                    <i class="fab fa-youtube" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/disha-bansal-940ba3241/" target="_blank"
+                    style="text-decoration: none;">
+                    <i class="fab fa-linkedin-in" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
+                </a>
+                <a href="https://github.com/DishaBansal15" target="_blank" class="social-icon github"
+                    style="text-decoration: none;">
+                    <i class="fab fa-github" style="color: #4E3626; font-size: 1.5em; margin-right: 1%;"></i>
+                </a>
+
+                <!-- LeetCode Link with an image icon and filter applied -->
+                <a href="https://leetcode.com/u/DishaBansal/" target="_blank" class="social-icon leetcode"
+                    style="text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+                        alt="LeetCode"
+                        style="width: 30px; height: 30px; margin-right: 1%; filter: invert(26%) sepia(28%) saturate(749%) hue-rotate(17deg) brightness(90%) contrast(95%);" />
                 </a>
 
             </div>
         </div>
     </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
 
         document.addEventListener("DOMContentLoaded", function () {
